@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def evaluate_final_model(model_cls, best_params: Dict[str, Any], X, y,
-                         preprocessor, n_splits: int = 5, n_jobs: int = 1) -> Pipeline:
+                        preprocessor, n_splits: int = 5, n_jobs: int = 1) -> Pipeline:
     """
     Build final Pipeline and run cross_validate with multiple metrics.
     Returns trained pipeline (unfitted) so caller can fit on full data if desired.
