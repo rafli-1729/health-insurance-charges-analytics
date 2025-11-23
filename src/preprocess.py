@@ -6,9 +6,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 import pandas as pd
 
-def build_preprocessor(num_features: List[str], cat_features: List[str], 
-                       num_imputer=None, num_scaler=None
-                       cat_imputer=None, cat_encoder=None, 
+def build_preprocessor(num_features: List[str], cat_features: List[str],
+                       num_imputer=None, num_scaler=None,
+                       cat_imputer=None, cat_encoder=None,
 ) -> ColumnTransformer:
     """
     Build a ColumnTransformer handling numeric and categorical columns.

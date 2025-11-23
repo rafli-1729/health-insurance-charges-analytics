@@ -1,6 +1,6 @@
 # src/utils.py
-import logging, random, tf, os
-import numpy as np
+import logging, random, os
+import numpy as np, tensorflow as tf
 from typing import Iterable, List
 
 def set_seed(seed=42):
