@@ -12,7 +12,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import r2_score, mean_absolute_error, root_mean_squared_error
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 import pandas as pd
 from .utils import logger, clean_feature_names
 
@@ -71,7 +71,7 @@ def run_dnn_cv(X: pd.DataFrame, y: pd.Series, num_cols: List[str], cat_cols: Lis
 
         y_pred = model.predict(X_val_proc, verbose=0).flatten()
         scores["r2"].append(r2_score(y_val, y_pred))
-        scores["rmse"].append(root_mean_squared_error(y_val, y_pred))
+        scores["rmse"].append(mean_squared_error(y_val, y_pred)**0.5)
         scores["mae"].append(mean_absolute_error(y_val, y_pred))
         logger.info(f"Fold {fold+1} -> R2={scores['r2'][-1]:.4f} MAE={scores['mae'][-1]:.2f} RMSE={scores['rmse'][-1]:.2f}")
 
